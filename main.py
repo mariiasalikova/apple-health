@@ -16,4 +16,8 @@ if uploaded_file is not None:
     df = pd.DataFrame([{key: r.get(key) for key in ALL_KEYS} for r in records if 'Apple' in r.attrib['sourceName']])
 
     df_heart = df.query('type == "HKQuantityTypeIdentifierHeartRate"')
-    st.line_chart(df_heart, x="startDate")
+    
+    df_heart['value'] = df_heart['value'].str.replace(',', '.')
+    df_heart['value'] = pd.to_numeric(df_heart['value'])
+    
+    st.line_chart(df_heart, x="startDate", y="value")
