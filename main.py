@@ -4,6 +4,7 @@ import re
 from lxml import etree
 
 st.title(':rainbow-background[Apple health analyser] :heart:')
+st.write('App for analyse data from your Apple devices! :sunglasses:')
 #OTHER_KEYS = ["type", "sourceName", "unit"]
 ALL_KEYS = ["startDate", "value", "type"]
 uploaded_file = st.file_uploader("Choose a file")
